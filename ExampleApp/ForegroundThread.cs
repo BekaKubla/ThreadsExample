@@ -3,22 +3,17 @@ using System.Threading;
 
 namespace ExampleApp
 {
-    class Program
+    public class ForegroundThread
     {
-
-        static void Main(string[] args)
+        public static void Main()
         {
             //Main Thread start here
-
-            for (var i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine($"This is main thread, second {i}");
-                Thread.Sleep(1000);
+                Console.WriteLine("This is Main Thread");
+                Thread.Sleep(2000);
             }
-            Console.WriteLine("-----Main Thread end-----");
-
-            //Main Thread end Here
-
+            //Main Thread end here
 
             //Multiple Thread start here
             Thread t1 = new Thread(Up);
@@ -26,8 +21,8 @@ namespace ExampleApp
 
             t1.Start();
             t2.Start();
-
             //Multiple Thread end here
+
         }
         static void Up()
         {
@@ -47,6 +42,5 @@ namespace ExampleApp
             }
             Console.WriteLine("-----Thread 2 finish-----");
         }
-
     }
 }
